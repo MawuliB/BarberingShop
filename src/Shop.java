@@ -33,9 +33,9 @@ public class Shop {
         if (size < 5 && (this.mainSeat != null)) {
             if (this.x == 0) {
                 this.event = "-- " + mainSeat;
-                this.outGoingClient = this.mainSeat;
-                this.mainSeat = seats.isEmpty() ? null : seats.pollFirst();
-                this.print(x, event, outGoingClient, seats);
+                this.mainSeat = seats.pollFirst();
+
+                this.print(x, event, mainSeat, seats);
             } else if (this.x == 1) {
                 this.event = "++ VIP" + ++vipIndex;
 
@@ -62,28 +62,28 @@ public class Shop {
             }
         } else if (size < 5 && this.mainSeat == null) {
             if (this.x == 0) {
-                this.event = "-- " + " None";
+                this.event = "-- " + "None";
+                this.print(x, event, mainSeat, seats);
             } else if (this.x == 1) {
                 this.event = "++ VIP" + ++vipIndex;
                 this.mainSeat = "VIP" + vipIndex;
-                print(x, event, mainSeat, seats);
+                this.print(x, event, mainSeat, seats);
             } else {
                 this.event = "++ ORD" + ++ordIndex;
                 this.mainSeat = "ORD" + ordIndex;
-                print(x, event, mainSeat, seats);
+                this.print(x, event, mainSeat, seats);
             }
         } else {
             if (x == 0) {
                 this.event = "-- " + mainSeat;
-                this.outGoingClient = this.mainSeat;
-                this.mainSeat = seats.isEmpty() ? null : seats.pollFirst();
-                this.print(x, event, outGoingClient, seats);
+                this.mainSeat = seats.pollFirst();
+                this.print(x, event, mainSeat, seats);
             } else if (x == 1) {
                 this.event = "+- VIP" + ++vipIndex;
-                print(x, event, mainSeat, seats);
+                this.print(x, event, mainSeat, seats);
             } else {
                 this.event = "+- ORD" + ++ordIndex;
-                print(x, event, mainSeat, seats);
+                this.print(x, event, mainSeat, seats);
             }
         }
     }
@@ -96,11 +96,12 @@ public class Shop {
 
         for (int i = 0; i < 5; i++) {
             if (seatArray[i] == null) {
-                seatString.append(" : ----");
+                seatString.append(" : ---- ");
             } else {
-                seatString.append(" " + seatArray[i] + " ");
+                seatString.append(" : " + seatArray[i] + " ");
             }
         }
+        this.mainSeat = mainSeat == null ? "----" : mainSeat;
         System.out.println(" " + x + " ---->    ( " + event + "  )       [  " + mainSeat + "" + seatString + "]");
     }
 }
