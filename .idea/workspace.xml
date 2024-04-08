@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29276953-abbd-48f3-a418-ede944952b5f" name="Changes" comment="Refactor String Concats and Added Similation Screenshot" />
+    <list default="true" id="29276953-abbd-48f3-a418-ede944952b5f" name="Changes" comment="Repaired Licence">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Shop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shop.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712588873720</updated>
       <workItem from="1712588874864" duration="225000" />
-      <workItem from="1712589116662" duration="4068000" />
+      <workItem from="1712589116662" duration="7653000" />
     </task>
     <task id="LOCAL-00001" summary="Changed IDE and extracted some logics into methods">
       <option name="closed" value="true" />
@@ -108,17 +114,37 @@
       <option name="project" value="LOCAL" />
       <updated>1712593175608</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Repaired Licence">
+      <option name="closed" value="true" />
+      <created>1712593479909</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712593479909</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="fixed mainSeat null bug" />
     <MESSAGE value="Changed IDE and extracted some logics into methods" />
     <MESSAGE value="Refactor String Concats and Added Similation Screenshot" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor String Concats and Added Similation Screenshot" />
+    <MESSAGE value="Repaired Licence" />
+    <option name="LAST_COMMIT_MESSAGE" value="Repaired Licence" />
   </component>
 </project>

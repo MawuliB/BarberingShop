@@ -12,6 +12,8 @@ public class Shop {
     private String event;
     private int vipIndex = 0;
     private int ordIndex = 0;
+    private final String VIP_ABBREV = "VIP";
+    private final String ORD_ABBREV = "ORD";
 
     Shop() {
         this.random = new Random();
@@ -20,7 +22,7 @@ public class Shop {
         Utility.welcomeMessage();
     }
 
-    public void shopEvent() {
+    public void startShopEvent() {
         int min = 0;
         int max = 3;
         this.x = random.nextInt((max - min) + 1) + min;
@@ -30,7 +32,7 @@ public class Shop {
         } else if (size < 5) {
             this.handleFreeSeatAndFreeMainSeat();
         } else {
-            this.handleOccupiedSeatAndOcupiedMainSeat();
+            this.handleOccupiedSeatAndOccupiedMainSeat();
         }
     }
 
@@ -39,12 +41,12 @@ public class Shop {
             this.event = "-- " + "None";
             callPrint();
         } else if (this.x == 1) {
-            this.event = STR."++ VIP\{++this.vipIndex}";
-            this.mainSeat = STR."VIP\{this.vipIndex}";
+            this.event = STR."++ \{this.VIP_ABBREV}\{++this.vipIndex}";
+            this.mainSeat = STR."\{this.VIP_ABBREV}\{this.vipIndex}";
             callPrint();
         } else {
-            this.event = STR."++ ORD\{++this.ordIndex}";
-            this.mainSeat = STR."ORD\{this.ordIndex}";
+            this.event = STR."++ \{this.ORD_ABBREV}\{++this.ordIndex}";
+            this.mainSeat = STR."\{this.ORD_ABBREV}\{this.ordIndex}";
             callPrint();
         }
     }
@@ -56,7 +58,7 @@ public class Shop {
 
             callPrint();
         } else if (this.x == 1) {
-            this.event = STR."++ VIP\{++this.vipIndex}";
+            this.event = STR."++ \{this.VIP_ABBREV}\{++this.vipIndex}";
 
             int count = 0;
             for (int i = 0; i < seats.size(); i++) {
@@ -67,36 +69,36 @@ public class Shop {
             for (int i = 0; i < count; i++) {
                 this.tempSeats.addLast(seats.pollLast());
             }
-            this.seats.addLast(STR."VIP\{this.vipIndex}");
+            this.seats.addLast(STR."\{this.VIP_ABBREV}\{this.vipIndex}");
             this.seats.addAll(this.tempSeats);
             this.tempSeats.clear();
 
             callPrint();
 
         } else {
-            this.event = STR."++ ORD\{++this.ordIndex}";
-            this.seats.addLast(STR."ORD\{this.ordIndex}");
+            this.event = STR."++ \{this.ORD_ABBREV}\{++this.ordIndex}";
+            this.seats.addLast(STR."\{this.ORD_ABBREV}\{this.ordIndex}");
             callPrint();
 
         }
     }
 
-    private void handleOccupiedSeatAndOcupiedMainSeat (){
+    private void handleOccupiedSeatAndOccupiedMainSeat(){
         if (x == 0) {
             this.event = STR."-- \{mainSeat}";
             this.mainSeat = seats.pollFirst();
             callPrint();
         } else if (x == 1) {
-            this.event = STR."+- VIP\{++this.vipIndex}";
+            this.event = STR."+- \{this.VIP_ABBREV}\{++this.vipIndex}";
             callPrint();
         } else {
-            this.event = STR."+- ORD\{++this.ordIndex}";
+            this.event = STR."+- \{this.ORD_ABBREV}\{++this.ordIndex}";
             callPrint();
         }
     }
 
 
-    private void print(int x, String event, String mainSeat, Deque<String> seats) {
+    private void printState(int x, String event, String mainSeat, Deque<String> seats) {
         String[] seatArray = new String[5];
         Arrays.fill(seatArray, null);
         seats.toArray(seatArray);
@@ -114,6 +116,6 @@ public class Shop {
     }
 
     private void callPrint(){
-        this.print(x, event, mainSeat, seats);
+        this.printState(x, event, mainSeat, seats);
     }
 }
