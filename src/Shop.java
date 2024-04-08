@@ -6,20 +6,18 @@ import java.util.Random;
 public class Shop {
     private final Random random;
     private int x;
-    private Deque<String> seats;
-    private Deque<String> tempSeats;
+    private final Deque<String> seats;
+    private final Deque<String> tempSeats;
     private String mainSeat;
     private String event;
     private int vipIndex = 0;
     private int ordIndex = 0;
-    private String mainSeatString;
 
     Shop() {
         this.random = new Random();
         this.seats = new ArrayDeque<>();
         this.tempSeats = new ArrayDeque<>();
-        System.out.println("     X         Events                          State Of The Shop                  ");
-        System.out.print("+----------+---------------+------------------------------------------------------+");
+        Utility.welcomeMessage();
     }
 
     public void shopEvent() {
@@ -29,7 +27,7 @@ public class Shop {
         int size = this.seats.size();
         if (size < 5 && this.mainSeat != null) {
             this.handleFreeSeatAndOccupiedMainSeat();
-        } else if (size < 5 && this.mainSeat == null) {
+        } else if (size < 5) {
             this.handleFreeSeatAndFreeMainSeat();
         } else {
             this.handleOccupiedSeatAndOcupiedMainSeat();
@@ -41,24 +39,24 @@ public class Shop {
             this.event = "-- " + "None";
             callPrint();
         } else if (this.x == 1) {
-            this.event = "++ VIP" + ++this.vipIndex;
-            this.mainSeat = "VIP" + this.vipIndex;
+            this.event = STR."++ VIP\{++this.vipIndex}";
+            this.mainSeat = STR."VIP\{this.vipIndex}";
             callPrint();
         } else {
-            this.event = "++ ORD" + ++this.ordIndex;
-            this.mainSeat = "ORD" + this.ordIndex;
+            this.event = STR."++ ORD\{++this.ordIndex}";
+            this.mainSeat = STR."ORD\{this.ordIndex}";
             callPrint();
         }
     }
 
     private void handleFreeSeatAndOccupiedMainSeat (){
         if (this.x == 0) {
-            this.event = "-- " + mainSeat;
+            this.event = STR."-- \{mainSeat}";
             this.mainSeat = seats.pollFirst();
 
             callPrint();
         } else if (this.x == 1) {
-            this.event = "++ VIP" + ++this.vipIndex;
+            this.event = STR."++ VIP\{++this.vipIndex}";
 
             int count = 0;
             for (int i = 0; i < seats.size(); i++) {
@@ -69,15 +67,15 @@ public class Shop {
             for (int i = 0; i < count; i++) {
                 this.tempSeats.addLast(seats.pollLast());
             }
-            this.seats.addLast("VIP" + this.vipIndex);
+            this.seats.addLast(STR."VIP\{this.vipIndex}");
             this.seats.addAll(this.tempSeats);
             this.tempSeats.clear();
 
             callPrint();
 
         } else {
-            this.event = "++ ORD" + ++this.ordIndex;
-            this.seats.addLast("ORD" + this.ordIndex);
+            this.event = STR."++ ORD\{++this.ordIndex}";
+            this.seats.addLast(STR."ORD\{this.ordIndex}");
             callPrint();
 
         }
@@ -85,14 +83,14 @@ public class Shop {
 
     private void handleOccupiedSeatAndOcupiedMainSeat (){
         if (x == 0) {
-            this.event = "-- " + mainSeat;
+            this.event = STR."-- \{mainSeat}";
             this.mainSeat = seats.pollFirst();
             callPrint();
         } else if (x == 1) {
-            this.event = "+- VIP" + ++this.vipIndex;
+            this.event = STR."+- VIP\{++this.vipIndex}";
             callPrint();
         } else {
-            this.event = "+- ORD" + ++this.ordIndex;
+            this.event = STR."+- ORD\{++this.ordIndex}";
             callPrint();
         }
     }
@@ -108,11 +106,11 @@ public class Shop {
             if (seatArray[i] == null) {
                 seatString.append(" : ---- ");
             } else {
-                seatString.append(" : " + seatArray[i] + " ");
+                seatString.append(" : ").append(seatArray[i]).append(" ");
             }
         }
-        this.mainSeatString = mainSeat == null ? "----" : mainSeat;
-        System.out.print(" " + x + " ---->    ( " + event + " ) " + space + "       [  " + mainSeatString + "" + seatString + "]");
+        String mainSeatString = mainSeat == null ? "----" : mainSeat;
+        System.out.print(STR." \{x} ---->    ( \{event} ) \{space}       [  \{mainSeatString}\{seatString.toString()}]");
     }
 
     private void callPrint(){
