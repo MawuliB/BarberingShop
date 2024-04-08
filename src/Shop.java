@@ -16,6 +16,7 @@ public class Shop {
     private int vipIndex = 0;
     private int ordIndex = 0;
     private boolean isThereOrd = false;
+    private String mainSeatString;
 
     Shop() {
         this.random = new Random();
@@ -101,7 +102,7 @@ public class Shop {
                 seatString.append(" : " + seatArray[i] + " ");
             }
         }
-        this.mainSeat = mainSeat == null ? "----" : mainSeat;
-        System.out.println(" " + x + " ---->    ( " + event + "  )       [  " + mainSeat + "" + seatString + "]");
+        this.mainSeatString = mainSeat == null ? "----" : mainSeat;
+        System.out.println(" " + x + " ---->    ( " + event + "  )       [  " + mainSeatString + "" + seatString + "]");
     }
 }
