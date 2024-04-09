@@ -59,10 +59,10 @@ public class Shop {
             callPrint();
         } else if (this.x == 1) {
             this.event = STR."++ \{this.VIP_ABBREV}\{++this.vipIndex}";
-
+            // Putting VIP in the front of the Waiting List
             int count = 0;
             for (int i = 0; i < seats.size(); i++) {
-                if (seats.toArray()[i].toString().startsWith("O")) {
+                if (seats.toArray()[i].toString().contains(this.ORD_ABBREV)) {
                     count++;
                 }
             }
