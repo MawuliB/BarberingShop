@@ -27,24 +27,24 @@ public class Shop {
         int max = 3;
         this.x = random.nextInt((max - min) + 1) + min;
         int size = this.seats.size();
-        if (size < 5 && this.mainSeat != null) {
+        if (size < 5 && this.mainSeat != null) { //if there is a person in the main seat and the waiting seat is not full
             this.handleFreeSeatAndOccupiedMainSeat();
-        } else if (size < 5) {
+        } else if (size < 5) { //if the waiting seat is not full and the main seat is empty
             this.handleFreeSeatAndFreeMainSeat();
-        } else {
+        } else { //if the waiting seat is full
             this.handleOccupiedSeatAndOccupiedMainSeat();
         }
     }
 
     private void handleFreeSeatAndFreeMainSeat (){
-        if (this.x == 0) {
+        if (this.x == 0) { //set event to none due to no person in the main seat
             this.event = "-- " + "None";
             callPrint();
-        } else if (this.x == 1) {
+        } else if (this.x == 1) { //add VIP to the main seat
             this.event = STR."++ \{this.VIP_ABBREV}\{++this.vipIndex}";
             this.mainSeat = STR."\{this.VIP_ABBREV}\{this.vipIndex}";
             callPrint();
-        } else {
+        } else { //add ORD to the main seat
             this.event = STR."++ \{this.ORD_ABBREV}\{++this.ordIndex}";
             this.mainSeat = STR."\{this.ORD_ABBREV}\{this.ordIndex}";
             callPrint();
@@ -52,12 +52,12 @@ public class Shop {
     }
 
     private void handleFreeSeatAndOccupiedMainSeat (){
-        if (this.x == 0) {
+        if (this.x == 0) { //remove person in the main seat
             this.event = STR."-- \{mainSeat}";
             this.mainSeat = seats.pollFirst();
 
             callPrint();
-        } else if (this.x == 1) {
+        } else if (this.x == 1) { //add VIP to the back of VIP or First the waiting seat
             this.event = STR."++ \{this.VIP_ABBREV}\{++this.vipIndex}";
             // Putting VIP in the front of the Waiting List
             int count = 0;
@@ -75,7 +75,7 @@ public class Shop {
 
             callPrint();
 
-        } else {
+        } else { //add ORD to the back of the waiting seat
             this.event = STR."++ \{this.ORD_ABBREV}\{++this.ordIndex}";
             this.seats.addLast(STR."\{this.ORD_ABBREV}\{this.ordIndex}");
             callPrint();
@@ -84,14 +84,14 @@ public class Shop {
     }
 
     private void handleOccupiedSeatAndOccupiedMainSeat(){
-        if (x == 0) {
+        if (x == 0) { //remove person in the main seat
             this.event = STR."-- \{mainSeat}";
             this.mainSeat = seats.pollFirst();
             callPrint();
-        } else if (x == 1) {
+        } else if (x == 1) { //add VIP to the back of the waiting seat
             this.event = STR."+- \{this.VIP_ABBREV}\{++this.vipIndex}";
             callPrint();
-        } else {
+        } else { //add ORD to the back of the waiting seat
             this.event = STR."+- \{this.ORD_ABBREV}\{++this.ordIndex}";
             callPrint();
         }
@@ -105,13 +105,13 @@ public class Shop {
         StringBuilder seatString = new StringBuilder();
         String space = (Utility.isNumeric(event.substring(6)) && Integer.parseInt(event.substring(6)) >= 10) ? "" : " ";
         for (int i = 0; i < 5; i++) {
-            if (seatArray[i] == null) {
+            if (seatArray[i] == null) { //if seat is empty append ----
                 seatString.append(" : ---- ");
-            } else {
+            } else { //if seat is not empty append seat number
                 seatString.append(" : ").append(seatArray[i]).append(" ");
             }
         }
-        String mainSeatString = mainSeat == null ? "----" : mainSeat;
+        String mainSeatString = mainSeat == null ? "----" : mainSeat; //if main seat is empty append ----
         System.out.print(STR." \{x} ---->    ( \{event} ) \{space}       [  \{mainSeatString}\{seatString.toString()}]");
     }
 
