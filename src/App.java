@@ -12,6 +12,7 @@ public class App {
             shop.startShopEvent();
         }
     }
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Shop shop = new Shop();

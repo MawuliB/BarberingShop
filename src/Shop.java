@@ -14,6 +14,7 @@ public class Shop {
     private int ordIndex = 0;
     private final String VIP_ABBREV = "VIP";
     private final String ORD_ABBREV = "ORD";
+    private final int numberOfSeats = 5;
 
     Shop() {
         this.random = new Random();
@@ -27,9 +28,9 @@ public class Shop {
         int max = 3;
         this.x = random.nextInt((max - min) + 1) + min;
         int size = this.seats.size();
-        if (size < 5 && this.mainSeat != null) { //if there is a person in the main seat and the waiting seat is not full
+        if (size < numberOfSeats && this.mainSeat != null) { //if there is a person in the main seat and the waiting seat is not full
             this.handleFreeSeatAndOccupiedMainSeat();
-        } else if (size < 5) { //if the waiting seat is not full and the main seat is empty
+        } else if (size < numberOfSeats) { //if the waiting seat is not full and the main seat is empty
             this.handleFreeSeatAndFreeMainSeat();
         } else { //if the waiting seat is full
             this.handleOccupiedSeatAndOccupiedMainSeat();
@@ -103,12 +104,12 @@ public class Shop {
 
 
     private void printState(int x, String event, String mainSeat, Deque<String> seats) {
-        String[] seatArray = new String[5];
+        String[] seatArray = new String[numberOfSeats];
         Arrays.fill(seatArray, null);
         seats.toArray(seatArray);
         StringBuilder seatString = new StringBuilder();
         String space = (Utility.isNumeric(event.substring(6)) && Integer.parseInt(event.substring(6)) >= 10) ? "" : " ";
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < numberOfSeats; i++) {
             if (seatArray[i] == null) { //if seat is empty append ----
                 seatString.append(" : ---- ");
             } else { //if seat is not empty append seat number
