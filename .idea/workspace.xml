@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29276953-abbd-48f3-a418-ede944952b5f" name="Changes" comment="Fixed VIP coming in Case">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="29276953-abbd-48f3-a418-ede944952b5f" name="Changes" comment="Added More Descriptive Comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +106,7 @@
       <updated>1712588873720</updated>
       <workItem from="1712588874864" duration="225000" />
       <workItem from="1712589116662" duration="12841000" />
-      <workItem from="1712649706369" duration="360000" />
+      <workItem from="1712649706369" duration="2164000" />
     </task>
     <task id="LOCAL-00001" summary="Changed IDE and extracted some logics into methods">
       <option name="closed" value="true" />
@@ -173,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712649137494</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added More Descriptive Comments">
+      <option name="closed" value="true" />
+      <created>1712651147119</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1712651147119</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +206,7 @@
     <MESSAGE value="Project Done V1" />
     <MESSAGE value="Project Done V1 - Updated Readme" />
     <MESSAGE value="Fixed VIP coming in Case" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed VIP coming in Case" />
+    <MESSAGE value="Added More Descriptive Comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added More Descriptive Comments" />
   </component>
 </project>

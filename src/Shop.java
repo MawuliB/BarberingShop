@@ -59,19 +59,7 @@ public class Shop {
             callPrint();
         } else if (this.x == 1) { //add VIP to the back of VIP or First the waiting seat
             this.event = STR."++ \{this.VIP_ABBREV}\{++this.vipIndex}";
-            // Putting VIP in the front of the Waiting List
-            int count = 0;
-            for (int i = 0; i < seats.size(); i++) {
-                if (seats.toArray()[i].toString().contains(this.ORD_ABBREV)) {
-                    count++;
-                }
-            }
-            for (int i = 0; i < count; i++) {
-                this.tempSeats.addFirst(seats.pollLast());
-            }
-            this.seats.addLast(STR."\{this.VIP_ABBREV}\{this.vipIndex}");
-            this.seats.addAll(this.tempSeats);
-            this.tempSeats.clear();
+            makeVipSkipSeat();
 
             callPrint();
 
@@ -81,6 +69,22 @@ public class Shop {
             callPrint();
 
         }
+    }
+
+    private void makeVipSkipSeat() {
+        // Putting VIP in the front of the Waiting List
+        int count = 0;
+        for (int i = 0; i < seats.size(); i++) {
+            if (seats.toArray()[i].toString().contains(this.ORD_ABBREV)) {
+                count++;
+            }
+        }
+        for (int i = 0; i < count; i++) {
+            this.tempSeats.addFirst(seats.pollLast());
+        }
+        this.seats.addLast(STR."\{this.VIP_ABBREV}\{this.vipIndex}");
+        this.seats.addAll(this.tempSeats);
+        this.tempSeats.clear();
     }
 
     private void handleOccupiedSeatAndOccupiedMainSeat(){
