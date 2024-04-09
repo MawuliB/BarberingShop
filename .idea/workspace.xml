@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29276953-abbd-48f3-a418-ede944952b5f" name="Changes" comment="Added More Descriptive Comments" />
+    <list default="true" id="29276953-abbd-48f3-a418-ede944952b5f" name="Changes" comment="Formated Code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +106,7 @@
       <updated>1712588873720</updated>
       <workItem from="1712588874864" duration="225000" />
       <workItem from="1712589116662" duration="12841000" />
-      <workItem from="1712649706369" duration="3234000" />
+      <workItem from="1712649706369" duration="5729000" />
     </task>
     <task id="LOCAL-00001" summary="Changed IDE and extracted some logics into methods">
       <option name="closed" value="true" />
@@ -194,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712652943808</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Formated Code">
+      <option name="closed" value="true" />
+      <created>1712653163541</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712653163541</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +231,7 @@
     <MESSAGE value="Project Done V1 - Updated Readme" />
     <MESSAGE value="Fixed VIP coming in Case" />
     <MESSAGE value="Added More Descriptive Comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added More Descriptive Comments" />
+    <MESSAGE value="Formated Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formated Code" />
   </component>
 </project>
