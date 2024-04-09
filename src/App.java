@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class App {
 
-    private  static void startSimulation(Shop shop, Scanner input, int simulationCount){
+    private static void startSimulation(Shop shop, Scanner input, int simulationCount) {
         for (int event = 0; event < simulationCount; event++) {
             String line = input.nextLine();
-            if(!line.equals(" ")){
+            if (!line.equals(" ")) {
                 System.out.println("Invalid input... Exiting...");
                 break;
             }

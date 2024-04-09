@@ -37,7 +37,7 @@ public class Shop {
         }
     }
 
-    private void handleFreeSeatAndFreeMainSeat (){
+    private void handleFreeSeatAndFreeMainSeat() {
         if (this.x == 0) { //set event to none due to no person in the main seat
             this.event = "-- " + "None";
             callPrint();
@@ -52,7 +52,7 @@ public class Shop {
         }
     }
 
-    private void handleFreeSeatAndOccupiedMainSeat (){
+    private void handleFreeSeatAndOccupiedMainSeat() {
         if (this.x == 0) { //remove person in the main seat
             this.event = STR."-- \{mainSeat}";
             this.mainSeat = seats.pollFirst();
@@ -63,12 +63,10 @@ public class Shop {
             makeVipSkipSeat();
 
             callPrint();
-
         } else { //add ORD to the back of the waiting seat
             this.event = STR."++ \{this.ORD_ABBREV}\{++this.ordIndex}";
             this.seats.addLast(STR."\{this.ORD_ABBREV}\{this.ordIndex}");
             callPrint();
-
         }
     }
 
@@ -88,7 +86,7 @@ public class Shop {
         this.tempSeats.clear();
     }
 
-    private void handleOccupiedSeatAndOccupiedMainSeat(){
+    private void handleOccupiedSeatAndOccupiedMainSeat() {
         if (x == 0) { //remove person in the main seat
             this.event = STR."-- \{mainSeat}";
             this.mainSeat = seats.pollFirst();
@@ -101,7 +99,6 @@ public class Shop {
             callPrint();
         }
     }
-
 
     private void printState(int x, String event, String mainSeat, Deque<String> seats) {
         String[] seatArray = new String[numberOfSeats];
@@ -120,7 +117,7 @@ public class Shop {
         System.out.print(STR." \{x} ---->    ( \{event} ) \{space}       [  \{mainSeatString}\{seatString.toString()}]");
     }
 
-    private void callPrint(){
+    private void callPrint() {
         this.printState(x, event, mainSeat, seats);
     }
 }
