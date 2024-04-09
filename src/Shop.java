@@ -67,7 +67,7 @@ public class Shop {
                 }
             }
             for (int i = 0; i < count; i++) {
-                this.tempSeats.addLast(seats.pollLast());
+                this.tempSeats.addFirst(seats.pollLast());
             }
             this.seats.addLast(STR."\{this.VIP_ABBREV}\{this.vipIndex}");
             this.seats.addAll(this.tempSeats);

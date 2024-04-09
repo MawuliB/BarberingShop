@@ -5,7 +5,8 @@ public class Utility {
     }
 
     public static void welcomeMessage() {
-        System.out.println("\nWelcome to Executive Barbering Shop\n\n");
+        System.out.println("\nWelcome to Executive Barbering Shop\n");
+        System.out.println("Press Space Key And Enter To Move To The Next Event\n\n");
         System.out.println("     X         Events                          State Of The Shop                  ");
         System.out.print("+----------+---------------+------------------------------------------------------+");
     }

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29276953-abbd-48f3-a418-ede944952b5f" name="Changes" comment="Project Done V1">
+    <list default="true" id="29276953-abbd-48f3-a418-ede944952b5f" name="Changes" comment="Project Done V1 - Updated Readme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712588873720</updated>
       <workItem from="1712588874864" duration="225000" />
-      <workItem from="1712589116662" duration="9514000" />
+      <workItem from="1712589116662" duration="11715000" />
     </task>
     <task id="LOCAL-00001" summary="Changed IDE and extracted some logics into methods">
       <option name="closed" value="true" />
@@ -135,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712598162662</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Project Done V1 - Updated Readme">
+      <option name="closed" value="true" />
+      <created>1712599574428</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712599574428</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +168,7 @@
     <MESSAGE value="Refactor String Concats and Added Similation Screenshot" />
     <MESSAGE value="Repaired Licence" />
     <MESSAGE value="Project Done V1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project Done V1" />
+    <MESSAGE value="Project Done V1 - Updated Readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project Done V1 - Updated Readme" />
   </component>
 </project>
