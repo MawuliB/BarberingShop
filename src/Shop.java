@@ -1,13 +1,9 @@
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.Random;
+import java.util.*;
 
 public class Shop {
     private final Random random;
     private int x;
-    private final Deque<String> seats;
-    private final Deque<String> tempSeats;
+    private final LinkedList<String> seats;
     private String mainSeat;
     private String event;
     private int vipIndex = 0;
@@ -18,8 +14,7 @@ public class Shop {
 
     Shop() {
         this.random = new Random();
-        this.seats = new ArrayDeque<>();
-        this.tempSeats = new ArrayDeque<>();
+        this.seats = new LinkedList<>();
         Utility.welcomeMessage();
     }
 
@@ -55,7 +50,7 @@ public class Shop {
     private void handleFreeSeatAndOccupiedMainSeat() {
         if (this.x == 0) { //remove person in the main seat
             this.event = STR."-- \{mainSeat}";
-            this.mainSeat = seats.pollFirst();
+            this.mainSeat = !seats.isEmpty() ? seats.removeFirst() : null;
 
             callPrint();
         } else if (this.x == 1) { //add VIP to the back of VIP or First the waiting seat
@@ -72,24 +67,24 @@ public class Shop {
 
     private void makeVipSkipSeat() {
         // Putting VIP in the front of the Waiting List
-        int count = 0;
+        int ordPersonIndex = -1;
         for (int i = 0; i < seats.size(); i++) {
-            if (seats.toArray()[i].toString().contains(this.ORD_ABBREV)) {
-                count++;
+            if (seats.get(i).startsWith(ORD_ABBREV)) {
+                ordPersonIndex = i;
+                break;
             }
         }
-        for (int i = 0; i < count; i++) {
-            this.tempSeats.addFirst(seats.pollLast());
+        if (ordPersonIndex == -1) {
+            this.seats.addFirst(STR."\{this.VIP_ABBREV}\{this.vipIndex}");
+        } else {
+            this.seats.add(ordPersonIndex, STR."\{this.VIP_ABBREV}\{this.vipIndex}");
         }
-        this.seats.addLast(STR."\{this.VIP_ABBREV}\{this.vipIndex}");
-        this.seats.addAll(this.tempSeats);
-        this.tempSeats.clear();
     }
 
     private void handleOccupiedSeatAndOccupiedMainSeat() {
         if (x == 0) { //remove person in the main seat
             this.event = STR."-- \{mainSeat}";
-            this.mainSeat = seats.pollFirst();
+            this.mainSeat = seats.removeFirst();
             callPrint();
         } else if (x == 1) { //add VIP to the back of the waiting seat
             this.event = STR."+- \{this.VIP_ABBREV}\{++this.vipIndex}";
@@ -100,11 +95,12 @@ public class Shop {
         }
     }
 
-    private void printState(int x, String event, String mainSeat, Deque<String> seats) {
+    private void printState(int x, String event, String mainSeat, LinkedList<String> seats) {
         String[] seatArray = new String[numberOfSeats];
         Arrays.fill(seatArray, null);
         seats.toArray(seatArray);
         StringBuilder seatString = new StringBuilder();
+        // Adjusting the space between the event and the seat
         String space = (Utility.isNumeric(event.substring(6)) && Integer.parseInt(event.substring(6)) >= 10) ? "" : " ";
         for (int i = 0; i < numberOfSeats; i++) {
             if (seatArray[i] == null) { //if seat is empty append ----
